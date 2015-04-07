@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "meijiRishu",
+  "version": "0.1",
+
+  "description": "明治大学履修登録のUIをちょっとよくする拡張機能",
+
+  "content_scripts": [
+    {
+      "matches": ["https://rishu-web.mind.meiji.ac.jp/Rishu/Regist.aspx"],
+      "js": ["main.js"],
+      "run_at": "document_end"
+    }
+  ]
+
+}
