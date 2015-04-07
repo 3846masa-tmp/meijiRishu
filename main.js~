@@ -23,8 +23,6 @@ var click = function(elem) {
   elem.dispatchEvent(event);
 }
 
-var willFlash = true;
-
 var selectLists = $('.style1');
 
 var typeSelectorLabel = $c('span');
@@ -56,19 +54,15 @@ $$('#RadioButtonList1 label').forEach(function(elem){
 if ($('#'+typeSelector.value).checked === false) {
   var elem = $('#'+typeSelector.value);
   elem.checked = true;
-  if (elem.getAttribute('onclick')) {
-    willFlash = false;
+  if (elem.getAttribute('onclick'))
     location.href = elem.getAttribute('onclick');
-  }
 }
 
 typeSelector.addEventListener('change', function(){
   var elem = $('#'+typeSelector.value);
   elem.checked = true;
-  if (elem.getAttribute('onclick')) {
-    willFlash = false;
+  if (elem.getAttribute('onclick'))
     location.href = elem.getAttribute('onclick');
-  }
 });
 
 var timeTableCels = $$('[id*=Label').filter(function(elem){
@@ -84,19 +78,15 @@ timeTableCels.forEach(function(elem){
     $$('[name="RadioButtonList2"]').forEach(function(elem){
       if (elem.value == wday) {
         elem.checked = true;
-        if (elem.getAttribute('onclick')) {
-          willFlash = false;
+        if (elem.getAttribute('onclick'))
           location.href = elem.getAttribute('onclick');
-        }
       }
     });
     $$('[name="RadioButtonList3"]').forEach(function(elem){
       if (elem.value == hour) {
         elem.checked = true;
-        if (elem.getAttribute('onclick')) {
-          willFlash = false;
+        if (elem.getAttribute('onclick'))
           location.href = elem.getAttribute('onclick');
-        }
       }
     });
   });
@@ -109,10 +99,8 @@ if (localStorage['param']) {
     $$('[name="RadioButtonList2"]').forEach(function(elem){
       if (elem.value == param.wday) {
         elem.checked = true;
-        if (elem.getAttribute('onclick')) {
-          willFlash = false;
+        if (elem.getAttribute('onclick'))
           location.href = elem.getAttribute('onclick');
-        }
       }
     });
   }
@@ -123,19 +111,16 @@ if (localStorage['param']) {
     $$('[name="RadioButtonList3"]').forEach(function(elem){
       if (elem.value == param.hour) {
         elem.checked = true;
-        if (elem.getAttribute('onclick')) {
-          willFlash = false;
+        if (elem.getAttribute('onclick'))
           location.href = elem.getAttribute('onclick');
-        }
       }
     });
   }
 }
 
 window.onbeforeunload = function(e){
-  if (willFlash)
-    return '申し込みボタンを押しましたか？\n押さないと登録されません！';
-  return;
+  console.log(e);
+  return '申し込みボタンを押しましたか？\n押さないと登録されません！';
 };
 
 })();
