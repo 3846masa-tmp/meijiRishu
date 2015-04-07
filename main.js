@@ -132,6 +132,13 @@ if (localStorage['param']) {
   }
 }
 
+$('#Button3').addEventListener('click', function(){
+  willFlash = false;
+});
+$('#ListBox1').addEventListener('click', function(){
+  willFlash = false;
+});
+
 window.onbeforeunload = function(e){
   if (willFlash)
     return '申し込みボタンを押しましたか？\n押さないと登録されません！';
